@@ -39,10 +39,11 @@ function shuffleDeck(allCardsInDeck){
 
 function flipCard(cardDiv, card){
 	if (cardDiv.innerHTML=='' && cardValue.length < 2 ) {
-		console.log(cardValue.length);
-		cardDiv.style.background = '#ccc';
+		console.log(cardValue.length + ", " + cardDiv);
+		cardDiv.style.fontSize = "50px";
+		cardDiv.style.textAlign = "center";
+		cardDiv.style.background = "#fff";
 		cardDiv.innerHTML = card;
-		console.log(cardDiv);
 		if (cardValue.length == 0){
 			cardValue.push(card);
 		} else {
@@ -52,14 +53,15 @@ function flipCard(cardDiv, card){
 				cardValue = [];
 			} else {
 				cardValue = [];
-				flipCardBack(cardDiv);				
+				setTimeout(function(){flipCardsBack(cardDiv);}, 800);	
 			}
 		}
 	}
 
 }
 
-function flipCardBack(cardDiv){
-	cardDiv.style.background = '#000';
+function flipCardsBack(cardDiv1, cardDiv2){
+	cardDiv1.style.background = '#000';
+	cardDiv2.style.background = '#000';
 }
 newGame();
