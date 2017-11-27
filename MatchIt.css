@@ -1,0 +1,33 @@
+button{
+	background: black;
+	font-family: sans-serif;
+	font-size: 20px;
+	color: white;
+}
+
+.gameBoard{
+	height: 615px;
+	width: 438px;
+	margin: 0 auto;
+	padding: 6px;
+	border: 1px solid black;
+}
+
+.cardBack{
+	float: left;
+	background: #000;
+	width: 40px;
+	height: 80px;
+	margin: 20px;
+	padding: 10px;
+}
+
+.cardFront{
+	height: 150px;
+	width: 106px;
+	font-size: 80px;
+	text-align: center;
+	font-family: fantasy;
+	border: 1px solid black;
+}
+
