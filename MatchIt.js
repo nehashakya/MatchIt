@@ -1,6 +1,6 @@
 var cardDeck = ['1','1','2','2','3','3','4','4','5','5','6','6','7','7','8','8'];
 var cardValue = [];
-var cardId = [];
+var openedCard = [];
 var cardsFlipped = 0;
 
 
@@ -38,24 +38,36 @@ function shuffleDeck(allCardsInDeck){
 }
 
 function flipCard(cardDiv, card){
-	if (cardDiv.innerHTML=='' && cardValue.length < 2 ) {
-		console.log(cardValue.length + ", " + cardDiv);
+	if (cardValue.length < 2 ) {
 		cardDiv.style.fontSize = "50px";
 		cardDiv.style.textAlign = "center";
 		cardDiv.style.background = "#fff";
 		cardDiv.innerHTML = card;
 		if (cardValue.length == 0){
 			cardValue.push(card);
+			openedCard.push(cardDiv);
+			cardsFlipped++;
 		} else {
-			console.log('click');
 			cardValue.push(card);
+			openedCard.push(cardDiv);
+			cardsFlipped++;
 			if (cardValue[0]==cardValue[1]){
 				cardValue = [];
+				openedCard = [];
 			} else {
-				cardValue = [];
-				setTimeout(function(){flipCardsBack(cardDiv);}, 800);	
+				setTimeout(function(){
+					flipCardsBack(openedCard[0], openedCard[1]);
+					cardValue = [];
+					openedCard = [];
+				}, 1000);
 			}
 		}
+		var totalFlips = document.getElementById("totalFlips");
+		totalFlips.innerHTML = '';
+		var a = document.createElement("p");
+		var b = document.createTextNode("Cards flipped: " + cardsFlipped);
+		a.appendChild(b);
+		totalFlips.appendChild(a);
 	}
 
 }

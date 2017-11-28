@@ -5,6 +5,10 @@ button{
 	color: white;
 }
 
+#totalFlips{
+	float: left;
+}
+
 .gameBoard{
 	height: 615px;
 	width: 438px;
